@@ -13,7 +13,7 @@ public class ProximityStreamDBFactory {
     public <T> ProximityStreamDB<T> create(AttributesStrategy<T> strat,
                                            GeoHashFactory hashFactory,
                                            int bits){
-        return null;
+        return new ProximityStreamDB_Impl<T>(strat, hashFactory, bits);
     }
 
     /**
@@ -27,7 +27,7 @@ public class ProximityStreamDBFactory {
      */
     public <T> ProximityStreamDB<T> create(AttributesStrategy<T> strat,
                                            int bits){
-        return null;
+        return new ProximityStreamDB_Impl<T>(strat, bits);
     }
 
 }
