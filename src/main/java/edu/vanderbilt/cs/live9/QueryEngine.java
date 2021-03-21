@@ -3,6 +3,7 @@ package edu.vanderbilt.cs.live9;
 import edu.vanderbilt.cs.live6.DataAndPosition;
 import edu.vanderbilt.cs.live7.AttributesStrategy;
 import edu.vanderbilt.cs.live7.ProximityStreamDB;
+import edu.vanderbilt.cs.live7.ProximityStreamDB_Impl;
 import edu.vanderbilt.cs.live9.ast.ExpressionNode;
 import edu.vanderbilt.cs.live9.ast.visitor.PrintVisitor;
 import edu.vanderbilt.cs.live9.expr.*;
@@ -84,6 +85,11 @@ public class QueryEngine {
         // You have to a QueryVisitor and use it like this to
         // complete the QueryEngine:
         //
+        //Basically, calling raw.accept(new QueryVisitor()) should translate from a .parse() result into an evaluatable expression
+        //tree of the structure specified in the second example in this main!!! So from raw expressionNodes into
+        //expression tree structure that evaluates what we want to find when we call root.evaluate
+        //Returned root should be a find node
+        //Take a look at PrintVisitor, main, and the structure for the result of QueryParser.parse for some assistance on how this stuff should be called
         return null;
     }
 
@@ -136,6 +142,7 @@ public class QueryEngine {
         //                     )
         //                )
         //
+
         NumberExpression lat = new NumberExpression(-45.0);
         NumberExpression lon = new NumberExpression(-145.0);
         NumberExpression bits = new NumberExpression(2);
@@ -173,7 +180,7 @@ public class QueryEngine {
                 "lon", -180.0
         ));
 
-        ProximityStreamDB db = null; // replace with your implementation and using a MapAttributesStrategy
+        ProximityStreamDB db = new ProximityStreamDB_Impl(new MapAttributesStrategy(), 5); // replace with your implementation and using a MapAttributesStrategy
         db.insert(data);
         db.insert(data2);
         Context<Map<String,?>> ctx = new Context<>();
