@@ -6,6 +6,7 @@ import edu.vanderbilt.cs.live7.ProximityStreamDB;
 import edu.vanderbilt.cs.live7.ProximityStreamDB_Impl;
 import edu.vanderbilt.cs.live9.ast.ExpressionNode;
 import edu.vanderbilt.cs.live9.ast.visitor.PrintVisitor;
+import edu.vanderbilt.cs.live9.ast.visitor.QueryVisitor;
 import edu.vanderbilt.cs.live9.expr.*;
 
 import java.util.Map;
@@ -80,8 +81,9 @@ public class QueryEngine {
 
         ExpressionNode raw = QueryParser.parse(querystr);
         // This will print out the abstract syntax tree
-        // raw.accept(new PrintVisitor());
-
+        QueryVisitor queryExpression = new QueryVisitor();
+        //raw.accept(queryExpression);
+        return null;
         // You have to a QueryVisitor and use it like this to
         // complete the QueryEngine:
         //
@@ -90,7 +92,7 @@ public class QueryEngine {
         //expression tree structure that evaluates what we want to find when we call root.evaluate
         //Returned root should be a find node
         //Take a look at PrintVisitor, main, and the structure for the result of QueryParser.parse for some assistance on how this stuff should be called
-        return null;
+        //return queryExpression.queryRoot();
     }
 
     public static DataAndPosition<Map<String,?>> data(Map<String,?> m){
