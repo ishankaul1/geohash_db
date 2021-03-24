@@ -82,8 +82,8 @@ public class QueryEngine {
         ExpressionNode raw = QueryParser.parse(querystr);
         // This will print out the abstract syntax tree
         QueryVisitor queryExpression = new QueryVisitor();
-        //raw.accept(queryExpression);
-        return null;
+        raw.accept(queryExpression);
+        //return null;
         // You have to a QueryVisitor and use it like this to
         // complete the QueryEngine:
         //
@@ -92,7 +92,7 @@ public class QueryEngine {
         //expression tree structure that evaluates what we want to find when we call root.evaluate
         //Returned root should be a find node
         //Take a look at PrintVisitor, main, and the structure for the result of QueryParser.parse for some assistance on how this stuff should be called
-        //return queryExpression.queryRoot();
+        return queryExpression.queryRoot();
     }
 
     public static DataAndPosition<Map<String,?>> data(Map<String,?> m){
