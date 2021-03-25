@@ -1,5 +1,7 @@
 package edu.vanderbilt.cs.live9.ast;
 
+import edu.vanderbilt.cs.live9.ast.visitor.QueryVisitor;
+
 import java.util.List;
 
 public class ExpressionNode implements Node {
@@ -35,6 +37,9 @@ public class ExpressionNode implements Node {
 
     public void accept(AstVisitor visitor){
         visitor.visit(this);
+        if (visitor instanceof QueryVisitor){
+            return;
+        }
         leftParen.accept(visitor);
         operation.accept(visitor);
         for(Node arg : arguments){
