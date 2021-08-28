@@ -1,13 +1,13 @@
-package edu.vanderbilt.cs.live9;
+package ishankaul.personal.live9;
 
-import edu.vanderbilt.cs.live6.DataAndPosition;
-import edu.vanderbilt.cs.live6.GeoHash;
-import edu.vanderbilt.cs.live6.Position;
-import edu.vanderbilt.cs.live7.AttributesStrategy;
-import edu.vanderbilt.cs.live7.ProximityStreamDB;
-import edu.vanderbilt.cs.live7.ProximityStreamDBFactory;
-import edu.vanderbilt.cs.live7.example.Building;
-import edu.vanderbilt.cs.live7.example.BuildingAttributesStrategy;
+import ishankaul.personal.live6.DataAndPosition;
+import ishankaul.personal.live6.GeoHash;
+import ishankaul.personal.live6.Position;
+import ishankaul.personal.live7.AttributesStrategy;
+import ishankaul.personal.live7.ProximityStreamDB;
+import ishankaul.personal.live7.ProximityStreamDBFactory;
+import ishankaul.personal.live7.example.Building;
+import ishankaul.personal.live7.example.BuildingAttributesStrategy;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
