@@ -19,14 +19,15 @@ The main features of this project include:
   attribute histogram for data between ranges of locations stored in the DB. 
  
  3. Query engine for operations on the database. Only queries supported so far are in the format:<br>
- (find<br>
-  \t(near \<lat\> \<lon\> \<bitsOfPrecision\>)<br>
-  (where<br>
-    (and<br>
-      (\> :\<atrribute\> \<value\>)<br>
-      (\> :\<attribute\> \<value\>)<br>
-    )<br>
-  )<br>
+(find<br>
+     (near \<lat\> \<lon\> \<bitsOfPrecision\>)<br>
+     (where<br>
+         (and<br>
+             (\> :\<atrribute\> \<value\>)<br>
+             (\> :\<attribute\> \<value\>)<br>
+         )<br>
+     )<br>
+ )
 
   This is implemented by parsing the original expression into an Abstract Syntax Tree, and then building an Expression Tree by running a Visitor through it.
   
