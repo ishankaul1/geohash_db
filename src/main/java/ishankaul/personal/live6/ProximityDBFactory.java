@@ -11,8 +11,8 @@ public class ProximityDBFactory {
      * @param <T>
      * @return
      */
-    public <T> ProximityDB<T> create(GeoHashFactory hashFactory, int bits){
-        return null;
+    public <T> ProximityDB<T> create( int bits){
+        return new ProximityDB_Impl<T>(bits);
     }
 
 }
