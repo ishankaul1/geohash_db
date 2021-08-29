@@ -20,11 +20,11 @@ The main features of this project include:
  
  3. Query engine for operations on the database. Only queries supported so far are in the format: 
  (find
-  (near \<lat\> \<lon\> <bitsOfPrecision>)
+  (near \<lat\> \<lon\> \<bitsOfPrecision\>)
   (where
     (and 
-      (> :<atrribute> <value>)
-      (> :<attribute> <value>)
+      (\> :\<atrribute\> \<value\>)
+      (\> :\<attribute\> \<value\>)
     )
   )
 
