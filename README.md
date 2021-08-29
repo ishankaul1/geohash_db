@@ -18,9 +18,9 @@ The main features of this project include:
   - By passing an 'AttributeStrategy' to ProximityStreamDb based on what type of data is being stored, we are able to return max, min, average, and an
   attribute histogram for data between ranges of locations stored in the DB. 
  
- 3. Query engine for operations on the database. Only queries supported so far are in the format: 
+ 3. Query engine for operations on the database. Only queries supported so far are in the format:<br>
  (find<br>
-  (near \<lat\> \<lon\> \<bitsOfPrecision\>)<br>
+  \t(near \<lat\> \<lon\> \<bitsOfPrecision\>)<br>
   (where<br>
     (and<br>
       (\> :\<atrribute\> \<value\>)<br>
