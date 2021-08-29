@@ -9,6 +9,7 @@ import java.util.Collection;
  * for nearby data items using geohashes.
  * The type parameter T is the type of data stored in the database. For example,
  * to map Strings to coordinates, new ProximityDBImpl<String>(...)
+ * TODO: Remove dependency on DataAndPosition. ProximityDB can just hold position.
  *
  */
 

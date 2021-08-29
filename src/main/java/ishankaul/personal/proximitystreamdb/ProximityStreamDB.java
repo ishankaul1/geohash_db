@@ -45,6 +45,7 @@ public interface ProximityStreamDB<T> extends ProximityDB<T> {
      *
      *
      * @Bonus
+     *TODO: implement path copy rather than rebuilding with command pattern.
      *
      * See persistent data structures for a more fun solution (bonus points -- only attempt
      * if you complete the version above with the command pattern first)

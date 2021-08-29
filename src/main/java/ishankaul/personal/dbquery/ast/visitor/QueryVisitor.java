@@ -9,6 +9,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
+/**
+ * Finds and evaluates query on DataBase.
+ * TODO: Extend this using a builder to clean up the code. Also, come up with a more broad query language to use on the DB.
+ */
 public class QueryVisitor implements AstVisitor {
 
     LinkedList<Expression> expressionsVisited = new LinkedList<>();

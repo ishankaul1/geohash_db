@@ -2,6 +2,9 @@ package ishankaul.personal.proximitystreamdb;
 import ishankaul.personal.proximitydb.Position;
 import ishankaul.personal.proximitydb.ProximityDB;
 
+/**
+ * Represents a 'delete' operation on the database in Object form. Used to 'rebuild' previous state of the DB history.
+ */
 public class Delete_Operation implements ProximityDB_Operation{
 
     private Position position;

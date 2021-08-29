@@ -44,7 +44,7 @@ public class GeoHash_Impl implements GeoHash {
 
         this.bitsOfPrecision = bitsOfPrecision;
 
-        //try to implement this section using streams and Guava library for fun/practice with java functional programming
+        //TODO: try to implement this section using streams and Guava library for fun/practice with java functional programming
         boolean[] geoHash_prim = geohash2D(lat, LATITUDE_RANGE, lon, LONGITUDE_RANGE, bitsOfPrecision);
         geoHash = new ArrayList<>();
         for (int i = 0; i < geoHash_prim.length; i++){

@@ -4,6 +4,8 @@ import java.util.*;
 /**
  * Binary tree to follow the composite pattern for the assignment. Contains CompositeNode branch nodes and
  * CompositeTree leaves.
+ * TODO #1: Instantiate this with a parameterized classs, and pass in lat/lon combination to all functions. This will allow for backwards compatibility with the original GeoDb, and remove dependency on DataAndPosition
+ * TODO #2: Make this its own package, and port CompositeNode/Leaf into their own files. Then add JUnit tests specifically for this package, rather than the commented out ones in main.
  */
 public class CompositeTree {
     private CompositeNode root;
