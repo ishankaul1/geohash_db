@@ -72,7 +72,15 @@ public class QueryParser {
     }
 
     public static void main(String[] args){
+        System.out.println("Resolving \"(find (near 90.0 90.0 3) (where (> height 20))\":\n");
       parse("(find (near 90.0 90.0 3) (where (> height 20))").accept(new PrintVisitor());
+
+        System.out.println("\nResolving \"(find +\n" +
+                "                  (near -45.0 -145.0 2)\n" +
+                "                   (where \n" +
+                "                        (> :height 8)\n" +
+                "                  )\" +\n" +
+                "              )");
       parse("(find " +
               "     (near -45.0 -145.0 2) " +
               "     (where " +

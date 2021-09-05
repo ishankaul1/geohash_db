@@ -9,12 +9,48 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Stream;
 
+
+/**
+ *  // (find
+ *         //    (near -45.0 -145.0 2)
+ *         //    (where
+ *         //       (and (> :height 8)
+ *         //            (> :age 50)
+ *         //     )
+ *         //  )
+ */
+/**
+ * ExpressionNode
+ *   LParenNode (
+ *   LiteralNode find
+ *   ExpressionNode
+ *     LParenNode (
+ *     LiteralNode near
+ *     LiteralNode -45.0
+ *     LiteralNode -145.0
+ *     LiteralNode 2
+ *     RParenNode )
+ *   ExpressionNode
+ *     LParenNode (
+ *     LiteralNode where
+ *     ExpressionNode
+ *       LParenNode (
+ *       LiteralNode >
+ *       LiteralNode :height
+ *       LiteralNode 8
+ *       RParenNode )
+ *     RParenNode )
+ *   RParenNode )
+ */
+
 /**
  * Finds and evaluates query on DataBase.
  * TODO: Extend this using a builder to clean up the code. Also, come up with a more broad query language to use on the DB.
  */
 public class QueryVisitor implements AstVisitor {
 
+
+    private  ExpressionFactory expressionFactory = new ExpressionFactory();
     LinkedList<Expression> expressionsVisited = new LinkedList<>();
     ArrayList<String> literalsVisited = new ArrayList<>();
 
@@ -43,9 +79,13 @@ public class QueryVisitor implements AstVisitor {
         if (!(n.getOperation() instanceof LiteralNode)){
             throw new IllegalArgumentException("Need literal node in operation");
         }
-        //LiteralNode opNode = (LiteralNode) n.getOperation();
-        visit ((LiteralNode) n.getOperation());
-        String op = literalsVisited.remove(0);
+        LiteralNode opNode = (LiteralNode) n.getOperation();
+
+        expressionsVisited.add(expressionFactory.create(opNode.getValue()));
+
+
+        //isit ((LiteralNode) n.getOperation());
+        /*String op = literalsVisited.remove(0);
 
         if (op.equals("find")){
             //is a find expression
@@ -60,7 +100,7 @@ public class QueryVisitor implements AstVisitor {
             if (!args.stream().allMatch(arg -> arg instanceof ExpressionNode)){
                 throw new IllegalArgumentException("All arguments to FIND must be of type ExpressionNode");
             }
-            visit((ExpressionNode) args.get(0));
+            /*visit((ExpressionNode) args.get(0));
             visit((ExpressionNode) args.get(1));
             //create the find expression
 
@@ -77,7 +117,7 @@ public class QueryVisitor implements AstVisitor {
             //sanity check
             /**if (rootExpr == null){
                 throw new IllegalStateException("FIND operation must come before NEAR");
-            }*/
+            }/*
             //build arguments
             List<Node> args = n.getArguments();
             if (args.size() != 3){
@@ -98,7 +138,7 @@ public class QueryVisitor implements AstVisitor {
         } else if (op.equals("where")){
             /**if (rootExpr == null){
                 throw new IllegalStateException("FIND operation must come before WHERE");
-            }*/
+            }
             //build arg
             List<Node> args = n.getArguments();
             if (args.size() != 1){
@@ -120,9 +160,9 @@ public class QueryVisitor implements AstVisitor {
         } else if (op.equals(">")){
             /**if (rootExpr == null){
                 throw new IllegalStateException("FIND operation must come before >");
-            }*/
+            }
             //build arg
-            List<Node> args = n.getArguments();
+           List<Node> args = n.getArguments();
             if (args.size() != 2){
                 throw new IllegalArgumentException("> operation needs exactly 2 arguments");
             }
@@ -148,7 +188,7 @@ public class QueryVisitor implements AstVisitor {
         } else if (op.equals("<")){
             /**if (rootExpr == null){
                 throw new IllegalStateException("FIND operation must come before >");
-            }*/
+            }
             //build arg
             List<Node> args = n.getArguments();
             if (args.size() != 2){
@@ -172,8 +212,7 @@ public class QueryVisitor implements AstVisitor {
 
         }else throw new IllegalArgumentException(op + " operation not yet supported.");
 
-
-
+    */
 
 
     }

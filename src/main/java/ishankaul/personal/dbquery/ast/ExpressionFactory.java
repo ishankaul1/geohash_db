@@ -1,9 +1,6 @@
 package ishankaul.personal.dbquery.ast;
 
-import ishankaul.personal.dbquery.expr.Expression;
-import ishankaul.personal.dbquery.expr.FindExpression;
-import ishankaul.personal.dbquery.expr.NearExpression;
-import ishankaul.personal.dbquery.expr.WhereExpression;
+import ishankaul.personal.dbquery.expr.*;
 
 import java.util.HashMap;
 
@@ -25,9 +22,21 @@ public class ExpressionFactory {
             WhereExpression where = new WhereExpression();
             return new FindExpression(near, where);
         });
+        expressionMap.put(">", param -> {return new GreaterThanExpression();});
+        expressionMap.put("<", param -> {return new LessThanExpression();});
 
     }
 
+    public Expression create(String param){
+        return expressionMap.get(param).execute(param);
+    }
 
+    public static void main(String[] args) {
+        //basic test for object creation
+        ExpressionFactory factory = new ExpressionFactory();
+        Expression expr = factory.create("near");
+
+    }
 
 }
+

@@ -2,6 +2,8 @@ package ishankaul.personal.dbquery.expr;
 
 public class AndExpression<T> implements Expression<T,Boolean>{
 
+
+    //Eventually there should be no left and right child; should be able to 'and' any # of elements
     private Expression<T,Boolean> leftChild;
     private Expression<T,Boolean> rightChild;
 

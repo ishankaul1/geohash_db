@@ -10,6 +10,18 @@ public class FindExpression<T> implements Expression<T, Stream<DataAndPosition<T
     private NearExpression near;
     private WhereExpression where;
 
+    public FindExpression(){
+
+    }
+
+    public void setNear(NearExpression near) {
+        this.near = near;
+    }
+
+    public void setWhere(WhereExpression where){
+        this.where = where;
+    }
+
     public FindExpression(NearExpression near, WhereExpression where) {
         this.near = near;
         this.where = where;

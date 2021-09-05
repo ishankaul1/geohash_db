@@ -1,10 +1,13 @@
 package ishankaul.personal.dbquery.ast;
 
 import ishankaul.personal.dbquery.ast.visitor.QueryVisitor;
+import ishankaul.personal.dbquery.expr.Expression;
 
 import java.util.List;
 
 public class ExpressionNode implements Node {
+
+    private ExpressionFactory expressionFactory;
 
     private Node leftParen = new LParenNode();
 
@@ -17,6 +20,7 @@ public class ExpressionNode implements Node {
     public ExpressionNode(Node operation, List<Node> arguments) {
         this.operation = operation;
         this.arguments = arguments;
+        this.expressionFactory = new ExpressionFactory();
     }
 
     public Node getOperation() {
@@ -37,9 +41,10 @@ public class ExpressionNode implements Node {
 
     public void accept(AstVisitor visitor){
         visitor.visit(this);
-        if (visitor instanceof QueryVisitor){
+        //TODO: make this work by having each operation accept the visitor
+        /*if (visitor instanceof QueryVisitor){
             return;
-        }
+        }*/
         leftParen.accept(visitor);
         operation.accept(visitor);
         for(Node arg : arguments){

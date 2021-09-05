@@ -1,6 +1,6 @@
 package ishankaul.personal.dbquery.expr;
 
-public class GreaterThanExpression<T> implements Expression<T,Boolean> {
+public class GreaterThanExpression<T> extends ComparisonExpression {
 
     private Expression leftChild;
     private Expression rightChild;
@@ -22,7 +22,7 @@ public class GreaterThanExpression<T> implements Expression<T,Boolean> {
     }
 
     @Override
-    public Boolean evaluate(Context<T> ctx) {
+    public Boolean evaluate(Context ctx) {
         Number lhs = (Number)leftChild.evaluate(ctx);
         Number rhs = (Number)rightChild.evaluate(ctx);
 

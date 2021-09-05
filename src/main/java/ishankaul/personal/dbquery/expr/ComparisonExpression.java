@@ -1,7 +1,6 @@
 package ishankaul.personal.dbquery.expr;
 
-public class LessThanExpression<T> extends ComparisonExpression {
-
+abstract class ComparisonExpression implements Expression{
     private Expression leftChild;
     private Expression rightChild;
 
@@ -21,13 +20,6 @@ public class LessThanExpression<T> extends ComparisonExpression {
         this.rightChild = rightChild;
     }
 
-    @Override
-    public Boolean evaluate(Context ctx) {
-        Double lhs = (Double)leftChild.evaluate(ctx);
-        Double rhs = (Double)rightChild.evaluate(ctx);
-
-        return lhs < rhs;
-    }
-
+    public abstract Boolean evaluate(Context ctx);
 
 }
